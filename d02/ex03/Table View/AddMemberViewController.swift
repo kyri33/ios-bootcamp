@@ -15,6 +15,9 @@ class AddMemberViewController: UIViewController {
     @IBOutlet weak var dateField: UIDatePicker!
     @IBOutlet weak var descriptionField: UITextView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
+    var name: String = ""
+    var descript: String = ""
+    var date: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +38,9 @@ class AddMemberViewController: UIViewController {
             return
         }
         
-        let name = nameField.text
-        let description = descriptionField.text
-        let date = dateField.date
+        name = nameField.text!
+        descript = descriptionField.text
+        date = dateField.date
     }
 
     /*

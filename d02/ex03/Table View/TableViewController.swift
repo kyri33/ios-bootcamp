@@ -10,15 +10,15 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    let names:[String] = [
+    var names:[String] = [
         "Hugh Hefner", "Chester Bennington", "Michael Jackson"
     ]
     
-    let descript:[String] = [
+    var descript:[String] = [
         "Founder Of Playboy", "Singer For Linkin Park", "King of Pop"
     ]
     
-    let dates:[String] = [
+    var dates:[String] = [
         "2017", "2017", "2010"
     ]
     
@@ -38,14 +38,17 @@ class TableViewController: UITableViewController {
     }
     
     @IBAction func unwindDeathList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? AddMemberViewController, let name = sourceViewController.name ?? "", let description = sourceViewController.description ?? "",
-            let date = sourceViewController.date {
-            
+        if let sourceViewController = sender.source as? AddMemberViewController, sourceViewController.name != "" {
+            let name = sourceViewController.name
+            let descripto = sourceViewController.descript
+            let date = sourceViewController.date
             let newIndexPath = IndexPath(row: names.count, section: 0)
             names.append(name)
-            descript.append(name)
+            descript.append(descripto)
             let dateFormatr = DateFormatter()
             dateFormatr.dateFormat = "dd-MM-YYYY"
+            dates.append(dateFormatr.string(from: date!))
+            self.tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
     }
     
