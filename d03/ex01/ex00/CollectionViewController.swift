@@ -68,6 +68,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         activityIndicator.startAnimating()
         let row = indexPath.row
         
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         DispatchQueue.global().async {
             let url = URL(string: self.images[row])
             let data = try? Data(contentsOf: url!)
@@ -76,6 +77,9 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
                 if let imageData = data {
                     cell.imageView.image = UIImage(data: imageData)
                     activityIndicator.stopAnimating()
+                    if row == self.images.count - 1 {
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    }
                 }
             }
         }
@@ -86,6 +90,9 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.view.frame.width / 2 - 20, height: self.view.frame.width / 2)
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: 20, height: 30)
+    }
 
 }
