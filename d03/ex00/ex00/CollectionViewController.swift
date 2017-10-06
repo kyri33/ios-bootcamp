@@ -13,10 +13,10 @@ private let reuseIdentifier = "cell"
 class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let images:[String] = [
-        "images-assets.nasa.gov/image/PIA21965/PIA21965~orig.jpg",
-        "images-assets.nasa.gov/image/PIA22036/PIA22036~orig.jpg",
-        "images-assets.nasa.gov/image/KSC-20170508-PH_SWW01_0025/KSC-20170508-PH_SWW01_0025~orig.JPG",
-        "images-assets.nasa.gov/image/KSC-20170508-PH_SWW01_0004/KSC-20170508-PH_SWW01_0004~orig.JPG"
+        "https://images-assets.nasa.gov/image/PIA21965/PIA21965~orig.jpg",
+        "https://images-assets.nasa.gov/image/PIA22036/PIA22036~orig.jpg",
+        "https://images-assets.nasa.gov/image/KSC-20170508-PH_SWW01_0025/KSC-20170508-PH_SWW01_0025~orig.JPG",
+        "https://images-assets.nasa.gov/image/KSC-20170508-PH_SWW01_0004/KSC-20170508-PH_SWW01_0004~orig.JPG"
     ]
 
     override func viewDidLoad() {
@@ -26,7 +26,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
         
         // Do any additional setup after loading the view.
     }
@@ -60,10 +60,23 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ImageCell
+        
         cell.backgroundColor = UIColor.black
-    
+        
+        let row = indexPath.row
+        let url = URL(string: images[row])
+        let data = try? Data(contentsOf: url!)
+        print ("and now?")
+        if let imageData = data {
+            print("begin")
+            cell.imageView.image = UIImage(data: imageData)
+            print("done")
+        } else {
+            print(data)
+            print("error")
+        }
+        
         return cell
     }
     

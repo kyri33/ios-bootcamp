@@ -54,12 +54,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGr-2s-IBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1060" y="73.313343328335833"/>
+            <point key="canvasLocation" x="823" y="73"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pOD-1c-8us">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bv2-d3-jgi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="V80-qr-wYH" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZEh-Rg-j30"/>
@@ -71,13 +70,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bv2-d3-jgi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2462" y="73"/>
+            <point key="canvasLocation" x="1481" y="73"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZDX-Td-gOU">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Phm-hW-UIp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PaC-Nm-y8k" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="I7j-z0-EFW">
@@ -89,6 +88,7 @@
                         <segue destination="ZI9-w4-ht1" kind="relationship" relationship="rootViewController" id="cHt-hg-W1x"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Phm-hW-UIp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="120.8" y="73.313343328335833"/>
         </scene>

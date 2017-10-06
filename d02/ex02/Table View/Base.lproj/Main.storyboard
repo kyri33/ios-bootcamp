@@ -108,7 +108,7 @@
                     <navigationItem key="navigationItem" title="Add Member" id="9yO-wJ-CBM">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="H3o-oM-wGq">
                             <connections>
-                                <action selector="doneButton:" destination="V80-qr-wYH" id="LOT-Vw-xXY"/>
+                                <action selector="sdfsdf:" destination="V80-qr-wYH" id="TJp-T0-TBQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
