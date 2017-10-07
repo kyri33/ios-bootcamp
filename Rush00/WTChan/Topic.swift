@@ -10,7 +10,7 @@ import Foundation
 
 class Topic {
     
-    var title: String?
+    var name: String?
     var author: String?
     var date: String?
     

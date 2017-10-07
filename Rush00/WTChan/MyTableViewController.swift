@@ -43,9 +43,13 @@ class MyTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! MyTableViewCell
 
-        // Configure the cell...
+        let row = indexPath.row
+        
+        cell.title.text = TableData[row].name
+        cell.descript.text = TableData[row].author
+        cell.postDate.text = TableData[row].date
 
         return cell
     }
@@ -78,17 +82,30 @@ class MyTableViewController: UITableViewController {
         //print("obj \(myObj)")
         
         for obj in myObj! {
-            print("Author \(obj["author"])")
+            let name: String = (obj["name"] as? String)!
+            let authorObj: AnyObject = (obj["author"] as? AnyObject)!
+            let author: String = (authorObj["login"] as? String)!
+            let date: String = (obj["created_at"] as? String)!
+            
+            let topic: Topic = Topic()
+            topic.name = name
+            topic.author = author
+            topic.date = date
+            
+            TableData.append(topic)
+            refresh_table()
+            //let authorObj = try! JSONSerialization(with: author, options: []) as? [AnyObject]
+
         }
         
-        print("Array ")
         
-            /*if let json: Data? = try! JSONSerialization.data(withJSONObject: myObj, options: .prettyPrinted)  {
-                print("Result \(json)")
-            } else {
-                print("json error")
-            }*/
 
+    }
+    
+    func refresh_table() {
+        DispatchQueue.main.async() {
+            self.tableView.reloadData()
+        }
     }
 
 }
