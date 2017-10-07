@@ -86,11 +86,13 @@ class MyTableViewController: UITableViewController {
             let authorObj: AnyObject = (obj["author"] as? AnyObject)!
             let author: String = (authorObj["login"] as? String)!
             let date: String = (obj["created_at"] as? String)!
+            let messageUrl: String = (obj["message_url"] as? String)!
             
             let topic: Topic = Topic()
             topic.name = name
             topic.author = author
             topic.date = date
+            topic.messageUrl = messageUrl
             
             TableData.append(topic)
             refresh_table()

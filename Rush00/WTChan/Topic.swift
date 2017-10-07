@@ -13,5 +13,5 @@ class Topic {
     var name: String?
     var author: String?
     var date: String?
-    
+    var messageUrl: String?
 }
