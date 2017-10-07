@@ -16,8 +16,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userAuthenticate()
-        fetchToken()
+        let session = UserDefaults.standard
+        if session.string(forKey: "access_token") != nil {
+            checkSession()
+        } else {
+            userAuthenticate()
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -29,8 +33,11 @@ class ViewController: UIViewController {
     
     func userAuthenticate() {
         let urlStr = "https://api.intra.42.fr/oauth/authorize?client_id=\(self.UID)&redirect_uri=http%3A%2F%2Fwww.mibrandapp.com&response_type=code&scope=public%20forum"
+        let myCompletionHandler: (Bool) -> Void = {(true) in
+            self.fetchToken()
+        }
         if let url = URL(string: urlStr) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            UIApplication.shared.open(url, options: [:], completionHandler: myCompletionHandler)
         } else {
             print("URL Error")
         }
@@ -53,9 +60,9 @@ class ViewController: UIViewController {
                     if let dic: NSDictionary = try JSONSerialization.jsonObject(with: d, options: .mutableContainers) as? NSDictionary {
                         if let response = dic["access_token"] {
                             self.token = response as? String
-                            session.set(dic.value(forKey: "access_token"), forKey: "token")
+                            session.set(dic.value(forKey: "access_token"), forKey: "access_token")
                             session.synchronize()
-                            print("Token " + self.token!)
+                            print("Got token " + self.token!)
                         } else {
                             print("token error")
                         }
@@ -66,6 +73,16 @@ class ViewController: UIViewController {
             }
         }
         task.resume()
+    }
+    
+    func checkSession() {
+        let session = UserDefaults.standard
+        if session.string(forKey: "access_token") != nil {
+            print("performing seg")
+            DispatchQueue.main.async() {
+                self.performSegue(withIdentifier: "auth", sender: self)
+            }
+        }
     }
 
 
