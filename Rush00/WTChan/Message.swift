@@ -1,18 +1,15 @@
 //
-//  Topic.swift
+//  Message.swift
 //  WTChan
 //
-//  Created by Kyri IOULIANOU on 2017/10/07.
+//  Created by Kyri IOULIANOU on 2017/10/08.
 //  Copyright © 2017 Kyri IOULIANOU. All rights reserved.
 //
 
 import Foundation
 
-class Topic {
-    
-    var name: String?
+class Message {
+    var content: String?
     var author: String?
     var date: String?
-    var messageUrl: String?
 }
-

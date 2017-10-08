@@ -13,11 +13,12 @@ class ViewController: UIViewController {
     let UID = "dc02ac6b227a3dfbddc79673fd66af056fdcafd2f291fced522166e201ba4492"
     let secret = "2a90c54653843bf1ac25eeaa309d856028a3d418663105e3f9a36aefb1154c58"
     var token: String?
+    let tokenName: String = "token"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let session = UserDefaults.standard
-        if session.string(forKey: "access_token") != nil {
+        if session.string(forKey: tokenName) != nil {
             checkSession()
         } else {
             userAuthenticate()
@@ -34,7 +35,7 @@ class ViewController: UIViewController {
     func userAuthenticate() {
         let urlStr = "https://api.intra.42.fr/oauth/authorize?client_id=\(self.UID)&redirect_uri=http%3A%2F%2Fwww.mibrandapp.com&response_type=code&scope=public%20forum"
         let myCompletionHandler: (Bool) -> Void = {(true) in
-            self.fetchToken()
+            self.fetchToken() 
         }
         if let url = URL(string: urlStr) {
             UIApplication.shared.open(url, options: [:], completionHandler: myCompletionHandler)
@@ -60,7 +61,7 @@ class ViewController: UIViewController {
                     if let dic: NSDictionary = try JSONSerialization.jsonObject(with: d, options: .mutableContainers) as? NSDictionary {
                         if let response = dic["access_token"] {
                             self.token = response as? String
-                            session.set(dic.value(forKey: "access_token"), forKey: "access_token")
+                            session.set(dic.value(forKey: "access_token"), forKey: self.tokenName)
                             session.synchronize()
                             print("Got token " + self.token!)
                         } else {

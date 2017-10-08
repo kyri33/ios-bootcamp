@@ -15,6 +15,8 @@
 		F137E7411F891BBF00A815D5 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137E7401F891BBF00A815D5 /* MyTableViewCell.swift */; };
 		F137E7431F891C4400A815D5 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137E7421F891C4400A815D5 /* MyTableViewController.swift */; };
 		F137E7451F891D0900A815D5 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137E7441F891D0900A815D5 /* Topic.swift */; };
+		F1CC25C61F8A39DD007479EC /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CC25C51F8A39DD007479EC /* MessagesTableViewController.swift */; };
+		F1CC25C81F8A5F5E007479EC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CC25C71F8A5F5E007479EC /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		F137E7401F891BBF00A815D5 /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		F137E7421F891C4400A815D5 /* MyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
 		F137E7441F891D0900A815D5 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		F1CC25C51F8A39DD007479EC /* MessagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessagesTableViewController.swift; path = ../MessagesTableViewController.swift; sourceTree = "<group>"; };
+		F1CC25C71F8A5F5E007479EC /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 		F137E72D1F88EF3400A815D5 /* WTChan */ = {
 			isa = PBXGroup;
 			children = (
+				F1CC25C51F8A39DD007479EC /* MessagesTableViewController.swift */,
 				F137E72E1F88EF3400A815D5 /* AppDelegate.swift */,
 				F137E7301F88EF3400A815D5 /* ViewController.swift */,
 				F137E7321F88EF3400A815D5 /* Main.storyboard */,
@@ -69,6 +74,7 @@
 				F137E7371F88EF3400A815D5 /* LaunchScreen.storyboard */,
 				F137E73A1F88EF3400A815D5 /* Info.plist */,
 				F137E7401F891BBF00A815D5 /* MyTableViewCell.swift */,
+				F1CC25C71F8A5F5E007479EC /* Message.swift */,
 			);
 			path = WTChan;
 			sourceTree = "<group>";
@@ -146,10 +152,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F137E7311F88EF3400A815D5 /* ViewController.swift in Sources */,
+				F1CC25C61F8A39DD007479EC /* MessagesTableViewController.swift in Sources */,
 				F137E7451F891D0900A815D5 /* Topic.swift in Sources */,
 				F137E72F1F88EF3400A815D5 /* AppDelegate.swift in Sources */,
 				F137E7411F891BBF00A815D5 /* MyTableViewCell.swift in Sources */,
 				F137E7431F891C4400A815D5 /* MyTableViewController.swift in Sources */,
+				F1CC25C81F8A5F5E007479EC /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +319,7 @@
 				F137E73F1F88EF3400A815D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
